@@ -1,0 +1,10 @@
+#N canvas 34 54 242 255 10;
+#X obj 90 97 f;
+#X obj 107 41 inlet;
+#X obj 108 201 s store_spot_\$1;
+#X obj 18 55 r grab_params;
+#X obj 108 165 list prepend \$1;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;

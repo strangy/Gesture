@@ -1,0 +1,71 @@
+#N canvas 451 158 557 612 10;
+#X obj -34 322 *~ 1;
+#X obj 278 266 cnv 15 85 100 empty empty empty 20 12 0 14 -133153 -66577
+0;
+#X obj 288 292 dbtorms;
+#X obj 288 272 env~;
+#X obj 288 312 * 1.4142;
+#N canvas 302 243 589 257 FAQ 0;
+#X obj 14 14 cnv 15 550 220 empty empty _____________________________
+20 12 0 14 -228856 -258113 0;
+#X text 144 107 takes a signal and outputs its RMS amplitude in dB.
+;
+#X text 168 145 converts from decibels to linear ("RMS") amplitude.
+;
+#X text 56 107 [env~] ----->;
+#X text 56 145 [dbtorms~] ----->;
+#X text 56 183 [square root of 2] ----->;
+#X text 55 163 |;
+#X text 55 124 |;
+#X text 33 16 THIS KEEPS THE ORIGINAL SIGNAL'S LEVEL;
+#X text 32 36 It constantly analyzes the input signal level and outputs
+the corresponding scaling factor in order to (approximately) keep the
+original signal's level \, i.e. in order to (approximately) keep the
+level the signal had before being distorted.;
+#X text 219 182 amplitude compensation.;
+#X restore 301 340 pd FAQ;
+#X obj 113 235 sig~;
+#X obj 113 195 - 1.001;
+#X obj 113 215 abs;
+#X obj -105 125 inlet~;
+#X obj -143 549 outlet~, f 9;
+#X obj -33 297 expr~ $v1/($v2+abs($v1));
+#X obj 390 455 cnv 15 100 30 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#N canvas 416 441 383 86 About 0;
+#X text -2 -3 • by LandonPD \; • first released: Feb. 2015 \; •
+license: Pd compatible \; • no warranties whatsoever \; • contact:
+naturalpanorama@yahoo.com.;
+#X restore 415 461 pd About;
+#X obj 115 145 hsl 128 15 0.001 1 0 0 empty empty distor 7 8 0 10 -262144
+-1 -1 6344 1;
+#X obj -15 480 xfade.mmb~;
+#X obj 220 461 line~;
+#X obj 220 435 pack f 50;
+#X obj 396 395 r line_time;
+#X obj 116 167 hsl 128 15 0.001 1 0 0 empty empty mix 7 8 0 10 -262144
+-1 -1 0 1;
+#X obj -19 206 *~ 1;
+#X obj 170 36 loadbang;
+#X msg 168 65 0.5;
+#X connect 0 0 15 1;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 0 1;
+#X connect 6 0 11 1;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 20 0;
+#X connect 9 0 15 0;
+#X connect 11 0 0 0;
+#X connect 14 0 7 0;
+#X connect 15 0 10 0;
+#X connect 16 0 15 2;
+#X connect 17 0 16 0;
+#X connect 18 0 17 1;
+#X connect 19 0 17 0;
+#X connect 20 0 3 0;
+#X connect 20 0 11 0;
+#X connect 21 0 22 0;
+#X connect 22 0 14 0;
+#X coords 0 -1 1 1 150 90 1 100 100;

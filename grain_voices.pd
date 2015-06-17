@@ -1,0 +1,6 @@
+#N canvas 75 206 329 236 10;
+#X msg 77 67 1 1;
+#X msg 131 65 1 0;
+#X obj 82 154 s grain-switch-\$0-1;
+#X connect 0 0 2 0;
+#X connect 1 0 2 0;
